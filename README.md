@@ -246,31 +246,31 @@ June generated $166,486 in sales and was the best-performing month across all th
 
 Based on the findings, I identified the following actions the business could explore.
 
-### 1. Increase the value of Brewed Chai Tea purchases
+#### 1. Increase the value of Brewed Chai Tea purchases
 
 Brewed Chai Tea attracted the highest number of orders but generated less revenue than Barista Espresso.
 
 The business could test product bundles that pair Brewed Chai Tea with pastries or snacks, such as scones. This would provide an opportunity to increase the average transaction value without relying solely on selling more drinks.
 
-### 2. Improve the visibility of Barista Espresso
+#### 2. Improve the visibility of Barista Espresso
 
 Barista Espresso generated the highest revenue across the chain and was the leading product by revenue in all three locations.
 
 The business could test more prominent menu placement, staff recommendations, and limited-time promotions to maintain or increase demand. The results should be tracked to determine whether these changes improve sales.
 
-### 3. Test a price adjustment for Brewed Chai Tea
+#### 3. Test a price adjustment for Brewed Chai Tea
 
 Given its high order volume, Brewed Chai Tea could be considered for a small price-increase test.
 
 Rather than assuming that regular customers would accept a higher price, the business could test a modest 5% increase in a selected location and monitor changes in sales volume, revenue, and profit margin before making a wider decision.
 
-### 4. Review staffing and inventory by location
+#### 4. Review staffing and inventory by location
 
 Lower Manhattan's sales were concentrated in the morning, while Astoria recorded a larger share of afternoon and night sales.
 
 Management could compare hourly sales with staffing costs and stock usage to determine whether adjustments to shift schedules or inventory would improve efficiency. Any changes should be based on the cost of operating each shift as well as the revenue generated.
 
-### 5. Investigate the factors behind June's performance
+#### 5. Investigate the factors behind June's performance
 
 Since June was the best-performing month across all three stores, management could examine product sales, transaction volumes, and location-level trends to understand what drove the increase.
 
