@@ -158,3 +158,4 @@ The analytical methodology followed a structured 3-stage process:
 
 ## Complete PostgreSQL Query Implementation
 Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
+[SQL Analysis Code](./coffee_sales_analysis.sql)
