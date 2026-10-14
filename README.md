@@ -156,6 +156,5 @@ The analytical methodology followed a structured 3-stage process:
 | ↓ | **Followed by Phase 3: PostgreSQL Cross-Reconciliation** |
 | **Phase 3: PostgreSQL Cross-Reconciliation** | • Created the SQL database table schema.<br>• Loaded 14,117 rows using `COPY`.<br>• Replicated the Excel aggregations using SQL queries. |
 
-
-a SQL   │
-└────────────────────────────────────────────────┘
+## Complete PostgreSQL Query Implementation
+Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
