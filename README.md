@@ -161,9 +161,9 @@ Below is the full, unedited PostgreSQL script executed to validate the Excel out
 ## 9 Dashboard and Visualization
 The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
 
-**Key Findings and Insights**
+### Key Findings and Insights
 
-### A. Overall Coffee Sales Performance
+##### A. Overall Coffee Sales Performance
 - [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
 The analysis covered 14,117 rows of coffee sales data from January to June 2023. The following metrics summarise the overall performance of the three store locations.
 
@@ -177,7 +177,7 @@ The analysis covered 14,117 rows of coffee sales data from January to June 2023.
 | Best-Performing Month | June ($166,486) |
 | Best-Performing Weekday | Monday ($101,677) |
 
-### B. Order Volume vs. Sales Revenue: Brewed Chai Tea and Barista Espresso
+##### B. Order Volume vs. Sales Revenue: Brewed Chai Tea and Barista Espresso
 
 One of the interesting findings from the analysis was that the most frequently ordered product was not the product generating the highest revenue.
 
@@ -190,7 +190,7 @@ This shows why businesses should look beyond order frequency when evaluating pro
 
 For the business, this presents two opportunities: increase the average spend of customers who order Brewed Chai Tea and explore ways to maintain or grow sales of Barista Espresso.
 
-### C. Comparing Performance Across Store Locations 
+##### C. Comparing Performance Across Store Locations 
 Using the dashboard slicers, I compared sales performance across Lower Manhattan, Hell's Kitchen, and Astoria to identify differences in customer purchasing patterns and sales activity.
 **Geographic Location Slicers (Store Comparisons)**
 
@@ -220,23 +220,23 @@ June was the best-performing month across all three stores, and Barista Espresso
 
 ## 10 Business Interpretation
 
-### Sales volume does not tell the whole story
+#### Sales volume does not tell the whole story
 
 Brewed Chai Tea had the highest order volume, but Barista Espresso generated more revenue. This highlights the importance of evaluating products using multiple measures, including order frequency, sales revenue, and units sold.
 
-### Sales patterns differ by location
+#### Sales patterns differ by location
 
 Lower Manhattan recorded 63% of its sales in the morning, compared with 45% in Astoria. Night sales accounted for only 3% of Lower Manhattan's revenue, while Astoria recorded 14%.
 
 These differences suggest that the stores may benefit from different staffing and inventory plans. However, sales data alone cannot establish whether current staffing levels or operating hours are inefficient. Cost and staffing data would be needed to assess that.
 
-### Monday leads overall, but not at every location
+#### Monday leads overall, but not at every location
 
 Monday generated the highest sales across the chain, at $101,677. However, the peak weekday varied by location: Monday in Lower Manhattan, Tuesday in Hell's Kitchen, and Wednesday in Astoria.
 
 This suggests that management should consider both overall sales trends and individual store patterns when planning promotions, staffing, and stock levels.
 
-### June was the strongest month
+#### June was the strongest month
 
 June generated $166,486 in sales and was the best-performing month across all three locations. 
 
