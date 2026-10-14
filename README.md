@@ -280,5 +280,7 @@ Fatolu Adedoyin Juliana
 Data Analyst |  Statistics Graduate | Research Assistant
 
 LinkedIn: Fatolu Adedoyin Juliana
-GitHub Profile: 
+
+GitHub Profile: fajuliana-source
+
 Email: fatoluadedoyin46@gmail.com 
