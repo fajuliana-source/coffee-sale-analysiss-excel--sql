@@ -10,18 +10,18 @@
 ## 1. Project Overview
 This project delivers a comprehensive, end-to-end commercial analytics solution evaluating the performance of a multi-location coffee retail chain operating across three primary  store Locations: **Lower Manhattan, Hell's Kitchen, and Astoria.**
 
-This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by engineering an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across 14,117 raw transaction logs (representing **149,116** line item records and **214,470** total units sold) from January 1, 2023, to June 30, 2023.
+This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by engineering an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across 14,116 raw transaction logs and **214,470** total units sold) from January 1, 2023, to June 30, 2023.
 
 To achieve enterprise-level data validation, the entire analysis was subsequently re-engineered in **PostgreSQL**. By translating visual pivot logic into structured database queries **(CTEs, aggregate functions, conditional grouping, and timestamp extractions)**, every key performance indicator (KPI), trend line, and ranking was cross-validated. This dual-tool approach guarantees 100% data reconciliation, proving that the numbers driving executive decisions are accurate, repeatable, and audit-ready.
 
 ## 2. Business Problem
 The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) and needs a single, trusted view of sales performance for Jan–Jun 2023. Leadership wants to plan staffing, inventory, pricing, and promotions based on facts, not assumptions. Specifically, they need to:
 
-**See the core KPIs at a glance:** total revenue, total orders, total units, average unit price, and the top-earning product.
-**Identify peak trading windows by time of day** (morning/afternoon/night), day of week, and monthly trend to align rosters and stock levels.
-**Separate “most ordered” products from “highest earning" products** to guide menu placement, bundling, and pricing tests.
-**Compare patterns by location** so each store can run store-specific actions instead of one blanket strategy.
-Trust the numbers by reconciling the Excel dashboard with PostgreSQL outputs, ensuring every KPI matches the raw transaction table.
+-See the core KPIs at a glance: total revenue, total orders, total units, average unit price, and the top-earning product.
+-Identify peak trading windows by time of day (morning/afternoon/night), day of week, and monthly trend to align rosters and stock levels.
+-Separate “most ordered” products from “highest earning" products to guide menu placement, bundling, and pricing tests.
+-Compare patterns by location so each store can run store-specific actions instead of one blanket strategy.
+-Trust the numbers by reconciling the Excel dashboard with PostgreSQL outputs, ensuring every KPI matches the raw transaction table.
 
 ### 3. Dataset Description
 The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023).
