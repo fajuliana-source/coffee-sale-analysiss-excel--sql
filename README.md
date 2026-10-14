@@ -161,4 +161,4 @@ Below is the full, unedited PostgreSQL script executed to validate the Excel out
 [SQL Analysis Code](./coffee_sales_analysis.sql)
 
 ## Dashboard and Visualization
-- [Coffee Sales Dashboard](./Coffee_sales_analysis_dashboard.png)
+- [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
