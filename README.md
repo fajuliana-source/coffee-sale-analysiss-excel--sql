@@ -156,11 +156,11 @@ The analytical methodology followed a structured 3-stage process:
 | ↓ | **Followed by Phase 3: PostgreSQL Cross-Reconciliation** |
 | **Phase 3: PostgreSQL Cross-Reconciliation** | • Created the SQL database table schema.<br>• Loaded 14,117 rows using `COPY`.<br>• Replicated the Excel aggregations using SQL queries. |
 
-## Complete PostgreSQL Query Implementation
+## 8 Complete PostgreSQL Query Implementation
 Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
 [SQL Analysis Code](./coffee_sales_analysis.sql)
 
-## 8 Dashboard and Visualization
+## 9 Dashboard and Visualization
 The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
 
 **Key Findings and Insights**
@@ -220,7 +220,7 @@ The main difference was when sales occurred. Lower Manhattan recorded its highes
 
 June was the best-performing month across all three stores, and Barista Espresso was the leading product by revenue in each location.
 
-## 9 Business Interpretation
+## 10 Business Interpretation
 
 ### Sales volume does not tell the whole story
 
@@ -242,7 +242,7 @@ This suggests that management should consider both overall sales trends and indi
 
 June generated $166,486 in sales and was the best-performing month across all three locations. 
 
-## 10 Business Recommendations
+## 11 Business Recommendations
 
 Based on the findings, I identified the following actions the business could explore.
 
