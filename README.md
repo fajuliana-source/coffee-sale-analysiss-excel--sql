@@ -145,7 +145,7 @@ These attributes were incorporated into the dataset to facilitate comparisons ac
 - Total Line Sales: Calculated line item gross revenue by multiplying quantity by unit price:=[@[transaction_qty]]*[@[unit_price]]
 
 
-## Exploratory Data Analysis and Methodology
+## 7 Exploratory Data Analysis and Methodology
 The analytical methodology followed a structured 3-stage process:
 
 | Phase | Activities |
@@ -160,7 +160,7 @@ The analytical methodology followed a structured 3-stage process:
 Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
 [SQL Analysis Code](./coffee_sales_analysis.sql)
 
-## Dashboard and Visualization
+## 8 Dashboard and Visualization
 The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
 
 **Key Findings and Insights**
@@ -220,7 +220,7 @@ The main difference was when sales occurred. Lower Manhattan recorded its highes
 
 June was the best-performing month across all three stores, and Barista Espresso was the leading product by revenue in each location.
 
-## Business Interpretation
+## 9 Business Interpretation
 
 ### Sales volume does not tell the whole story
 
@@ -242,7 +242,7 @@ This suggests that management should consider both overall sales trends and indi
 
 June generated $166,486 in sales and was the best-performing month across all three locations. 
 
-## Business Recommendations
+## 10 Business Recommendations
 
 Based on the findings, I identified the following actions the business could explore.
 
