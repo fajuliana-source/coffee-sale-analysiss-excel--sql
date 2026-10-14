@@ -2,10 +2,12 @@
 Dual Excel Dashboard &amp; PostgreSQL Data Reconciliation for Retail Coffee Sales
 # ☕ End-to-End Coffee Sales Analytics: Dual Excel Dashboard & PostgreSQL Data Reconciliation
 
-[![Tools](https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
-[![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
-[![Dataset](https://img.shields.io/badge/Data_Size-14%2C117_Records-orange?style=flat-square)](https://www.kaggle.com)
-[![Documentation](https://img.shields.io/badge/Portfolio_Case_Study-Complete-success?style=flat-square)](https://github.com)
+[![Tools]  (https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
+
+[![Domain]  (https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
+
+
+[![Dataset] (https://img.shields.io/badge/Data_Size-14%2C117_Records-orange?style=flat-square)](https://www.kaggle.com)
 
 ---
 
