@@ -5,7 +5,6 @@
 [![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
 [![Dataset](https://img.shields.io/badge/Data_Size-14%2C117_Records-orange?style=flat-square)](https://www.kaggle.com)
 
----
 
 ## 1. Project Overview
 This project delivers a comprehensive, end-to-end commercial analytics solution evaluating the performance of a multi-location coffee retail chain operating across three primary  store Locations: **Lower Manhattan, Hell's Kitchen, and Astoria.**
@@ -276,3 +275,10 @@ Since June was the best-performing month across all three stores, management cou
 
 These findings could help inform future sales planning, provided the business can identify which factors are repeatable.
 
+## Author and Contact
+Fatolu Adedoyin Juliana
+Data Analyst |  Statistics Graduate | Research Assistant
+
+LinkedIn: Fatolu Adedoyin Juliana
+GitHub Profile: 
+Email: fatoluadedoyin46@gmail.com 
