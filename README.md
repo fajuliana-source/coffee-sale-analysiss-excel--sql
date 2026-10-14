@@ -43,7 +43,7 @@ Dataset Metadata & Schema Summary
 | unit_price | Decimal | Retail price per individual unit ($) |
 | product_category | Text | High-level category (Coffee, Tea, Bakery, Drinking Chocolate, etc.) |
 | product_type | Text | Specific sub-category (Barista Espresso, Brewed Chai Tea, Scone, etc.) |
-| product_detail | Text | Granular SKU description and sizing details |
+| product_detail | Text | product description |
 
 ## 4. Business Questions
 To understand the business performance and support better decision-making, this analysis focuses on answering the following business questions:
@@ -136,8 +136,7 @@ Five calculated columns were created to support more detailed sales analysis and
 These attributes were incorporated into the dataset to facilitate comparisons across operational time periods and other relevant business dimensions.
 
 - Time of Day Bucket (Operational Shift): Evaluated raw timestamp in Column F to categorize sales into operational shifts:
-=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night")))y model.
-     
+=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night"))     
 - Day of Week: Extracted three-letter abbreviated weekday strings from Column "transaction_date":=TEXT([@[transaction_date]],"ddd")
 - Month Name: Extracted three-letter abbreviated month strings from Column "transaction_date":=TEXT([@[transaction_date]],"MMM")
 - Extracted four-digit calendar year from Column "transaction_date":=TEXT([@[transaction_date]],"YYYY")
