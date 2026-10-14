@@ -1,5 +1,5 @@
 # coffee-sale-analysiss-excel--sql
-# ☕ End-to-End Coffee Sales Analytics: Dual Excel Dashboard & PostgreSQL Data Validation
+# End-to-End Coffee Sales Analytics: Dual Excel Dashboard & PostgreSQL Data Validation
 
 [![Tools](https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
 [![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
