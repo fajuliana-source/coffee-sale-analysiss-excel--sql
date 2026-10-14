@@ -161,4 +161,12 @@ Below is the full, unedited PostgreSQL script executed to validate the Excel out
 [SQL Analysis Code](./coffee_sales_analysis.sql)
 
 ## Dashboard and Visualization
+The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
+
+ **Dashboard Overall Combined View**
 - [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
+
+**Geographic Location Slicers (Store Comparisons)**
+- Lower Manhattan Slicer View
+- Hell's Kitchen Slicer View	
+- Astoria Slicer View
