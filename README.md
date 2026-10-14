@@ -167,6 +167,6 @@ The dashboard was designed using a Warm Roast Coffee Palette to match industry b
 - [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
 
 **Geographic Location Slicers (Store Comparisons)**
-- Lower Manhattan Slicer View
-- Hell's Kitchen Slicer View	
-- Astoria Slicer View
+- [Lower Manhattan Slicer View](./Lower_Manhattan_View.png)
+- [Hell's Kitchen Slicer View](./Hell_Slicer_View.png)	
+- [Astoria Slicer View](./Astoria_Slicer_View.png)
