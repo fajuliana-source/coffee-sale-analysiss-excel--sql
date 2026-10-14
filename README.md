@@ -8,77 +8,154 @@
 ---
 
 ## 1. Project Overview
-This project presents a dual-platform commercial data analysis of a multi-location coffee retail chain operating across three New York locations (Astoria, Hell's Kitchen, and Lower Manhattan). The project validates raw transaction records using **PostgreSQL** queries and visualizes the commercial insights through an interactive executive dashboard built in **Microsoft Excel**.
+This project delivers a comprehensive, end-to-end commercial analytics solution evaluating the performance of a multi-location coffee retail chain operating across three primary  store Locations: **Lower Manhattan, Hell's Kitchen, and Astoria.**
+
+This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by engineering an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across 14,117 raw transaction logs (representing **149,116** line item records and **214,470** total units sold) from January 1, 2023, to June 30, 2023.
+
+To achieve enterprise-level data validation, the entire analysis was subsequently re-engineered in **PostgreSQL**. By translating visual pivot logic into structured database queries **(CTEs, aggregate functions, conditional grouping, and timestamp extractions)**, every key performance indicator (KPI), trend line, and ranking was cross-validated. This dual-tool approach guarantees 100% data reconciliation, proving that the numbers driving executive decisions are accurate, repeatable, and audit-ready.
 
 ## 2. Business Problem
-Retail stakeholders often rely on visual dashboards to make rapid operational decisions, but those visualizations must be perfectly reconciled with backend database records. The business needed to uncover hidden sales trends, peak operational hours, and product performance drivers, while ensuring absolute data integrity between front-end reporting and the database.
+The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) and needs a single, trusted view of sales performance for Jan–Jun 2023. Leadership wants to plan staffing, inventory, pricing, and promotions based on facts, not assumptions. Specifically, they need to:
 
-## 3. Dataset Description
-- **Source:** Kaggle Retail Transaction Dataset
-- **Volume:** 14,117 raw transaction logs (representing 214,470 units sold)
-- **Timeframe:** January 1, 2023 – June 30, 2023 (6 Months)
-- **Granularity:** Transaction line-item level containing features like Date, Time, Location, Product Category, Product Type, Quantity, and Unit Price.
+**See the core KPIs at a glance:** total revenue, total orders, total units, average unit price, and the top-earning product.
+**Identify peak trading windows by time of day** (morning/afternoon/night), day of week, and monthly trend to align rosters and stock levels.
+**Separate “most ordered” products from “highest earning" products** to guide menu placement, bundling, and pricing tests.
+**Compare patterns by location** so each store can run store-specific actions instead of one blanket strategy.
+Trust the numbers by reconciling the Excel dashboard with PostgreSQL outputs, ensuring every KPI matches the raw transaction table.
+
+### 3. Dataset Description
+The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023).
+
+Dataset Metadata & Schema Summary
+Total Raw Records: 14,116 transaction records
+Total Units Sold: 214,470 units
+Timeframe: January 1, 2023 – June 30, 2023
+Geographic Scope: 3 Stores (Astoria, Hell's Kitchen, Lower Manhattan)
+
+| Raw Field Name | Data Type | Description |
+|---|---|---|
+| transaction_id | Integer | Unique identifier for each customer transaction |
+| transaction_date | Date / Text | Standard calendar date of sale (YYYY-MM-DD) |
+| transaction_time | Time / Text | Exact timestamp of transaction (HH:MM:SS) |
+| transaction_qty | Integer | Number of units purchased per line item |
+| store_id | Integer | Unique store location identifier (1, 2, 3) |
+| store_location | Text | Physical location name (Astoria, Hell's Kitchen, Lower Manhattan) |
+| product_id | Integer | Unique inventory SKU identifier |
+| unit_price | Decimal | Retail price per individual unit ($) |
+| product_category | Text | High-level category (Coffee, Tea, Bakery, Drinking Chocolate, etc.) |
+| product_type | Text | Specific sub-category (Barista Espresso, Brewed Chai Tea, Scone, etc.) |
+| product_detail | Text | Granular SKU description and sizing details |
 
 ## 4. Business Questions
-1. **Executive KPIs:** What are the total revenue, total order volume, average unit price, and total units sold?
-2. **Temporal Trends:** How does revenue fluctuate by time of day, day of the week, and month-over-month?
-3. **Product Performance:** Which product categories generate the highest revenue versus the highest order volume?
-4. **Geographic Behavior:** How do purchasing behaviors and peak hours differ across the three store locations?
+To understand the business performance and support better decision-making, this analysis focuses on answering the following business questions:
+Executive KPIs
+- What is the total gross revenue generated across all locations?
+- What is the total order volume, total unit volume, and average unit price?
+- What is the single highest-earning product across the entire chain?
 
-## 5. Tools and Technologies
-- **Microsoft Excel:** Data cleaning, feature engineering, Pivot Tables, dynamic formulas (INDEX-MATCH), interactive dashboard design.
-- **PostgreSQL:** Database schema creation, data ingestion (`COPY`), and analytical querying (CTEs, aggregations, grouping).
-- **PowerPoint:** Executive presentation of SQL logic and business findings.
+Temporal & Operational Trends
+- How is sales revenue distributed across operational shifts (Morning vs. Afternoon vs. Night)?
+- Which day of the week generates peak revenue, and what is the dollar variance between the busiest and slowest days?
+- What is the month-over-month sales growth trajectory across the 6-month period?
+
+Main Analysis 
+- Which top 5 product categories contribute the largest share to total sales?
+- Which specific product types dominate transaction order volume (Top 10 Most Ordered)?
+- Which specific product types dominate gross revenue generation (Top 10 Highest Earning)?
+- Does a discrepancy exist between customer order frequency and total dollar return?
+
+Geographic & Slicer Analysis
+- How do sales KPIs, shift patterns, and product preferences shift when filtering specifically by Lower Manhattan, Hell's Kitchen, and Astoria?
+
+## 5. Tools and Commands
+Microsoft Excel
+
+-Used for data inspection, preparation, feature engineering, and interactive dashboard development.
+
+-Data Cleaning and Preparation: Inspected the raw dataset for missing values, duplicate transaction IDs, and inconsistencies in date and time fields.
+
+-Feature Engineering: Created calculated columns to support time-based and multidimensional sales analysis.
+
+-Dynamic Lookup Formulas: Used INDEX, MATCH, and MAX to build dynamic lookup functionality and display selected results using custom number and text formatting.
+
+-Interactive Dashboard Development: Designed an interactive dashboard incorporating timeline slicers, visual hierarchy, custom colour branding, and shape-based containers to improve navigation and readability.
+
+PostgreSQL 17:
+-Used for relational table creation, data ingestion, and analytical querying.
+
+-Database Schema Design: Defined a relational table structure using CREATE TABLE, with appropriate data types and NUMERIC(10,2) precision for monetary values.
+
+-Data Ingestion: Loaded CSV data into PostgreSQL using the COPY command.
+
+-Analytical SQL: Used aggregate functions such as SUM(), AVG(), and COUNT(), alongside GROUP BY, ORDER BY, and LIMIT, to analyse sales performance across relevant dimensions.
+
+Microsoft PowerPoint:
+Used to document the analytical process and communicate technical findings.
+
+Prepared a presentation documenting SQL query logic, screenshots of query outputs, visual evidence of the analysis, and interpretations of the results for stakeholder communication.
 
 ## 6. Data Cleaning and Preparation
-The raw dataset was rigorously inspected for data quality:
-- Verified zero missing values and zero duplicate transaction records.
-- Standardized data types across all columns.
-- Engineered **5 new calculated columns** to support analysis:
-  - **Time of Day:** `=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night")))`
-  - **Day of Week:** `=TEXT([@[transaction_date]],"ddd")`
-  - **Month & Year:** `=TEXT([@[transaction_date]],"MMM")` and `=TEXT([@[transaction_date]],"YYYY")`
-  - **Total Line Sales:** `=[@[transaction_qty]]*[@[unit_price]]`
+Data preparation was performed in Microsoft Excel before the dataset was structured and loaded into PostgreSQL for analysis.
 
-## 7. Exploratory Data Analysis and Methodology
-The methodology followed a 3-phase cross-platform validation approach:
-1. **Phase 1 (Excel EDA):** Utilized a dedicated Pivot Engine to aggregate metrics by time, product, and location.
-2. **Phase 2 (Dashboarding):** Built an interactive UI with dynamic subheaders automatically tracking peak metrics.
-3. **Phase 3 (SQL Validation):** Replicated all Excel aggregation logic in PostgreSQL to verify data integrity. 
+Step 1: Data Import and Structural Inspection
 
-**Reconciliation Matrix:**
-| Metric | Excel Output | PostgreSQL Output | Status |
-|---|---|---|---|
-| Total Revenue | $698.8K | $698,812.33 | ✅ Match |
-| Total Orders | 149,116 | 149,116 | ✅ Match |
-| Total Units Sold | 214,470 | 214,470 | ✅ Match |
+The raw CSV file was imported into Microsoft Excel for initial inspection.
 
-## 8. Dashboard and Visualizations
+The dataset was reviewed for structural issues, missing values, duplicate transaction IDs, and inconsistencies in date and time fields.
 
-**Master Executive Dashboard (All Stores Combined)**
-![Master Coffee Sales Dashboard](assets/coffee_dashboard_overall.png)
+Initial checks indicated:
 
-**Location-Specific Comparative Views**
-| Lower Manhattan | Hell's Kitchen | Astoria |
-|---|---|---|
-| ![Lower Manhattan](assets/slicer_lower_manhattan.png) | ![Hell's Kitchen](assets/slicer_hells_kitchen.png) | ![Astoria](assets/slicer_astoria.png) |
+No missing values were identified.
 
-## 9. Key Findings and Insights
-- **Volume vs. Revenue:** *Brewed Chai Tea* is the highest ordered product (17,183 orders), but *Barista Espresso* generates the highest revenue ($91.4K).
-- **Time of Day:** 56% of overall sales occur during the Morning shift.
-- **Peak Operational Day:** Monday is the highest-grossing day overall ($101.7K).
-- **Store Personas:** 
-  - *Lower Manhattan* relies heavily on morning commuters (63% morning sales).
-  - *Astoria* exhibits strong afternoon (41%) and evening (14%) traffic, fitting a residential neighborhood profile.
+No duplicate transaction IDs were identified.
 
-## 10. Interpretation and Business Implications
-The data reveals a critical **Volume vs. Revenue Paradox**. Relying strictly on transaction volume creates a false sense of product success. High-volume items like Chai Tea consume operational labor without driving top-line growth at the same rate as Espresso. Furthermore, a blanket operational strategy will fail, as individual stores demonstrate distinct commercial personas (commuter vs. residential).
+Date and time values were consistent in their original representation.
 
-## 11. Recommendations
-1. **Chai Tea Bundling (AOV Strategy):** Implement point-of-sale protocols to pair high-frequency Chai Tea orders with high-margin bakery items (e.g., Scones) to boost Average Order Value.
-2. **Elevate Espresso Visibility:** Reposition Barista Espresso prominently on digital and physical menu boards to drive conversion from regular drip-coffee drinkers.
-3. **Location-Based Shift Scheduling:** Cut evening staff in Lower Manhattan (where night sales account for only 3%) and reallocate labor hours to Astoria's busy evening rush (14%).
+Step 2: Data Type Standardisation
 
-## 12. Conclusion
-By bridging the gap between front-end visualizations (Excel) and back-end database queries (PostgreSQL), this analysis not only ensured 100% data accuracy but also uncovered hidden revenue drivers. The business is now equipped to transition from a feeling-based operational strategy to a data-driven profitability model.
+Columns were reviewed and prepared for analysis using appropriate data types and formats.
+
+Column
+
+Intended data type or format
+
+transaction_id
+
+Whole number
+
+store_id
+
+Whole number
+
+product_id
+
+Whole number
+
+transaction_qty
+
+Whole number
+
+transaction_date
+
+Date (YYYY-MM-DD)
+
+transaction_time
+
+Time (HH:MM:SS)
+
+unit_price
+
+Numeric decimal / currency
+
+Date and time fields were prepared for temporal analysis, while numeric fields were checked for compatibility with calculations and aggregation.
+
+Step 3: Feature Engineering
+
+Five calculated columns were created to support more detailed sales analysis and interactive dashboard filtering.
+
+These attributes were incorporated into the dataset to facilitate comparisons across operational time periods and other relevant business dimensions.
+
+Time of Day Bucket (Operational Shift): Evaluated raw timestamp in Column F to categorize sales into operational shifts:
+```excel
+=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night")))y model.
      
