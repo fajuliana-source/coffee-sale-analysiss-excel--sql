@@ -160,8 +160,10 @@ The analytical methodology followed a structured 3-stage process:
 | **Phase 3: PostgreSQL Cross-Reconciliation** | • Created the SQL database table schema.<br>• Loaded 14,116 rows using `COPY`.<br>• Replicated the Excel aggregations using SQL queries. |
 
 ## 8 Complete PostgreSQL Query Implementation
-Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
+Below is the full, unedited PostgreSQL script and the PowerPoint Presentation executed to validate the Excel outputs:
 [SQL Analysis Code](./coffee_sales_analysis.sql)
+[PowerPoint presentation ](./COFFEE_SALES_ANALYSIS.pptx)
+
 
 ## 9 Dashboard and Visualization
 The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
