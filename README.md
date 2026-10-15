@@ -7,7 +7,6 @@
 
 
 ## 1. Project Overview
-T## 1. Project Overview
 
 This project analyses coffee sales across three store locations: Lower Manhattan, Hell's Kitchen, and Astoria, using Microsoft Excel and PostgreSQL.
 
