@@ -9,9 +9,9 @@
 ## 1. Project Overview
 This project delivers a comprehensive, end-to-end commercial analytics solution evaluating the performance of a multi-location coffee retail chain operating across three primary  store Locations: **Lower Manhattan, Hell's Kitchen, and Astoria.**
 
-This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by engineering an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across 14,116 raw transaction logs and **214,470** total units sold) from January 1, 2023, to June 30, 2023.
+This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by building an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across **14,116** raw transaction logs and **214,470** total units sold) from **January 1, 2023, to June 30, 2023.**
 
-To achieve enterprise-level data validation, the entire analysis was subsequently re-engineered in **PostgreSQL**. By translating visual pivot logic into structured database queries **(CTEs, aggregate functions, conditional grouping, and timestamp extractions)**, every key performance indicator (KPI), trend line, and ranking was cross-validated. This dual-tool approach guarantees 100% data reconciliation, proving that the numbers driving executive decisions are accurate, repeatable, and audit-ready.
+To achieve enterprise-level data validation, the entire analysis was then re-engineered in **PostgreSQL**. By translating visual pivot logic into structured database queries **(CTEs, aggregate functions, conditional grouping, and timestamp extractions)**, every key performance indicator (KPI), trend line, and ranking was cross-validated. This dual-tool approach guarantees 100% data reconciliation, proving that the numbers driving executive decisions are accurate, repeatable, and audit-ready.
 
 ## 2. Business Problem
 The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) and needs a single, trusted view of sales performance for Jan–Jun 2023. Leadership wants to plan staffing, inventory, pricing, and promotions based on facts, not assumptions. Specifically, they need to:
@@ -58,7 +58,7 @@ Temporal & Operational Trends
 - Which day of the week generates peak revenue, and what is the dollar variance between the busiest and slowest days?
 - What is the month-over-month sales growth trajectory across the 6-month period?
 
-Other Analysis 
+Others 
 - Which top 5 product categories contribute the largest share to total sales?
 - Which specific product types dominate transaction order volume (Top 10 Most Ordered)?
 - Which specific product types dominate gross revenue generation (Top 10 Highest Earning)?
@@ -68,9 +68,9 @@ Geographic & Slicer Analysis
 - How do sales KPIs, shift patterns, and product preferences shift when filtering specifically by Lower Manhattan, Hell's Kitchen, and Astoria?
 
 ## 5. Tools and Commands
-Microsoft Excel
+Microsoft Excel:
 
-- Used for data inspection, preparation, feature engineering, and interactive dashboard development.
+Used for data inspection, preparation, feature engineering, and interactive dashboard development.
 
 - Data Cleaning and Preparation: Inspected the raw dataset for missing values, duplicate transaction IDs, and inconsistencies in date and time fields.
 
@@ -81,7 +81,8 @@ Microsoft Excel
 - Interactive Dashboard Development: Designed an interactive dashboard incorporating timeline slicers, visual hierarchy, custom colour branding, and shape-based containers to improve navigation and readability.
 
 PostgreSQL 17:
-- Used for relational table creation, data ingestion, and analytical querying.
+
+Used for relational table creation, data ingestion, and analytical querying.
 
 - Database Schema Design: Defined a relational table structure using CREATE TABLE, with appropriate data types and NUMERIC(10,2) precision for monetary values.
 
@@ -136,10 +137,14 @@ Five calculated columns were created to support more detailed sales analysis and
 These attributes were incorporated into the dataset to facilitate comparisons across operational time periods and other relevant business dimensions.
 
 - Time of Day Bucket (Operational Shift): Evaluated raw timestamp in Column F to categorize sales into operational shifts:
-=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night"))     
+=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night"))
+
 - Day of Week: Extracted three-letter abbreviated weekday strings from Column "transaction_date":=TEXT([@[transaction_date]],"ddd")
+  
 - Month Name: Extracted three-letter abbreviated month strings from Column "transaction_date":=TEXT([@[transaction_date]],"MMM")
+
 - Extracted four-digit calendar year from Column "transaction_date":=TEXT([@[transaction_date]],"YYYY")
+
 - Total Line Sales: Calculated line item gross revenue by multiplying quantity by unit price:=[@[transaction_qty]]*[@[unit_price]]
 
 
@@ -148,11 +153,11 @@ The analytical methodology followed a structured 3-stage process:
 
 | Phase | Activities |
 |---|---|
-| **Phase 1: Excel Pivot Engine** | • Built a dedicated `Pivot` worksheet.<br>• Calculated key performance indicators (KPIs).<br>• Created dynamic peak-value lookup text cards. |
+| **Phase 1: Excel Pivot Engine** | • Built  `Pivot` worksheet.<br>• Calculated key performance indicators (KPIs).<br>• Created dynamic peak-value lookup text cards. |
 | ↓ | **Followed by Phase 2: Visual Dashboard Architecture** |
-| **Phase 2: Visual Dashboard Architecture** | • Structured five metric cards.<br>• Created doughnut, bar, and line charts.<br>• Connected slicers across PivotTables. |
+| **Phase 2: Visual Dashboard ** | • Structured five metric cards.<br>• Created doughnut, bar, and line charts.<br>• Connected slicers across PivotTables. |
 | ↓ | **Followed by Phase 3: PostgreSQL Cross-Reconciliation** |
-| **Phase 3: PostgreSQL Cross-Reconciliation** | • Created the SQL database table schema.<br>• Loaded 14,117 rows using `COPY`.<br>• Replicated the Excel aggregations using SQL queries. |
+| **Phase 3: PostgreSQL Cross-Reconciliation** | • Created the SQL database table schema.<br>• Loaded 14,116 rows using `COPY`.<br>• Replicated the Excel aggregations using SQL queries. |
 
 ## 8 Complete PostgreSQL Query Implementation
 Below is the full, unedited PostgreSQL script executed to validate the Excel outputs:
@@ -163,9 +168,9 @@ The dashboard was designed using a Warm Roast Coffee Palette to match industry b
 
 ### Key Findings and Insights
 
-##### A. Overall Coffee Sales Performance
+#### A. Overall Coffee Sales Performance
 - [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
-The analysis covered 14,117 rows of coffee sales data from January to June 2023. The following metrics summarise the overall performance of the three store locations.
+The analysis covered 14,116 rows of coffee sales data from January to June 2023. The following metrics summarise the overall performance of the three store locations.
 
 | Performance Metric | Result |
 |---|---:|
@@ -177,7 +182,7 @@ The analysis covered 14,117 rows of coffee sales data from January to June 2023.
 | Best-Performing Month | June ($166,486) |
 | Best-Performing Weekday | Monday ($101,677) |
 
-##### B. Order Volume vs. Sales Revenue: Brewed Chai Tea and Barista Espresso
+#### B. Order Volume vs. Sales Revenue: Brewed Chai Tea and Barista Espresso
 
 One of the interesting findings from the analysis was that the most frequently ordered product was not the product generating the highest revenue.
 
@@ -190,7 +195,7 @@ This shows why businesses should look beyond order frequency when evaluating pro
 
 For the business, this presents two opportunities: increase the average spend of customers who order Brewed Chai Tea and explore ways to maintain or grow sales of Barista Espresso.
 
-##### C. Comparing Performance Across Store Locations 
+#### C. Comparing Performance Across Store Locations 
 Using the dashboard slicers, I compared sales performance across Lower Manhattan, Hell's Kitchen, and Astoria to identify differences in customer purchasing patterns and sales activity.
 **Geographic Location Slicers (Store Comparisons)**
 
@@ -276,7 +281,8 @@ These findings could help inform future sales planning, provided the business ca
 
 ## Author and Contact
 Fatolu Adedoyin Juliana
-Data Analyst |  Statistics Graduate | Research Assistant
+
+Data Analyst |  Statistics Graduate | Research Analyst 
 
 LinkedIn: Fatolu Adedoyin Juliana
 
