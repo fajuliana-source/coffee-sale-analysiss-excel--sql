@@ -3,7 +3,7 @@
 
 [![Tools](https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
 [![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
-[![Dataset](https://img.shields.io/badge/Data_Size-14%2C117_Records-orange?style=flat-square)](https://www.kaggle.com)
+[![Dataset](https://img.shields.io/badge/Data_Size-149%2C116_Records-orange?style=flat-square)](https://www.kaggle.com)
 
 
 ## 1. Project Overview
@@ -15,16 +15,14 @@ I started by preparing the dataset, creating calculated columns, and building an
 I then recreated the key calculations and aggregations in PostgreSQL to  compare and validate the results with my Excel analysis.
 
 The project covers six months of sales data, from January to June 2023, and focuses on turning sales records into insights that can help support business decisions.
- [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
 
 ## 2. Business Problem
-The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) and needs a single, trusted view of sales performance for Jan–Jun 2023. Leadership wants to plan staffing, inventory, pricing, and promotions based on facts, not assumptions. Specifically, they need to:
 
-- See the core KPIs at a glance: total revenue, total orders, total units, average unit price, and the top-earning product.
-- Identify peak trading windows by time of day (morning/afternoon/night), day of week, and monthly trend to align rosters and stock levels.
-- Separate “most ordered” products from “highest earning" products to guide menu placement, bundling, and pricing tests.
-- Compare patterns by location so each store can run store-specific actions instead of one blanket strategy.
-- Trust the numbers by reconciling the Excel dashboard with PostgreSQL outputs, ensuring every KPI matches the raw transaction table.
+The coffee chain operates three stores across Astoria, Hell’s Kitchen, and Lower Manhattan. To make informed operational and commercial decisions, management needs a clear understanding of how sales performance varies across the business.
+
+Without a consolidated view of sales data, it can be difficult to identify areas that require attention, allocate resources effectively, and determine where changes to product offerings or sales strategies may be worth exploring.
+
+This project uses six months of sales data, from January to June 2023, to provide a consolidated view of the business's performance and support data-informed decision-making.
 
 ### 3. Dataset Description
 The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023).
@@ -59,7 +57,7 @@ Executive KPIs
 
 Temporal & Operational Trends
 - How is sales revenue distributed across operational shifts (Morning vs. Afternoon vs. Night)?
-- Which day of the week generates peak revenue, and what is the dollar variance between the busiest and slowest days?
+- Which day of the week generates peak revenue
 - What is the month-over-month sales growth trajectory across the 6-month period?
 
 Product Performance 
@@ -173,14 +171,13 @@ Below is the full, unedited PostgreSQL script and the PowerPoint Presentation ex
 [PowerPoint presentation ](./COFFEE_SALES_ANALYSIS.pptx)
 
 
-## 9 Dashboard and Visualization
-The dashboard was designed using a Warm Roast Coffee Palette to match industry branding, featuring clean card containers, clear typography hierarchy, and interactive slicer controls.
+## 9. Dashboard, Key Findings and Business Interpretation
 
-### Key Findings and Insights
+The interactive Excel dashboard was designed using a Warm Roast Coffee colour palette, with KPI cards, charts and slicers to support the exploration of sales performance across products, time periods and store locations.
 
-#### A. Overall Coffee Sales Performance
-- [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
-The analysis covered 14,116 rows of coffee sales data from January to June 2023. The following metrics summarise the overall performance of the three store locations.
+### A. Overall Coffee Sales Performance
+
+The analysis covered 149,116 sales records from January to June 2023 across three store locations. The following KPIs summarise the overall performance of the business.
 
 | Performance Metric | Result |
 |---|---:|
@@ -192,26 +189,26 @@ The analysis covered 14,116 rows of coffee sales data from January to June 2023.
 | Best-Performing Month | June ($166,486) |
 | Best-Performing Weekday | Monday ($101,677) |
 
-#### B. Order Volume vs. Sales Revenue: Brewed Chai Tea and Barista Espresso
+June recorded the highest monthly revenue, while Monday generated the highest revenue among the weekdays. These results provide a starting point for further analysis of sales patterns and business performance.
 
-One of the interesting findings from the analysis was that the most frequently ordered product was not the product generating the highest revenue.
+### B. Product Performance: Order Volume vs. Revenue
+
+The product analysis showed that the products with the highest order frequency did not necessarily generate the highest revenue.
 
 - **Brewed Chai Tea:** Ranked first by order volume, with 17,183 orders and approximately $77,125 in sales revenue.
 - **Barista Espresso:** Ranked third by order volume, with 16,403 orders, but generated the highest revenue at $91,406.
 
-Although Brewed Chai Tea was ordered more frequently, Barista Espresso generated $14,281 more in revenue.
+Despite recording fewer orders, Barista Espresso generated $14,281 more in revenue than Brewed Chai Tea. This highlights the value of assessing products using both order volume and revenue rather than relying on a single performance measure.
 
-This shows why businesses should look beyond order frequency when evaluating product performance. A product can attract more orders without generating the highest revenue.
+### C. Sales Performance Across Store Locations
 
-For the business, this presents two opportunities: increase the average spend of customers who order Brewed Chai Tea and explore ways to maintain or grow sales of Barista Espresso.
+The dashboard slicers enabled comparisons of sales performance, time-of-day patterns and product results across Lower Manhattan, Hell's Kitchen and Astoria.
 
-#### C. Comparing Performance Across Store Locations 
-Using the dashboard slicers, I compared sales performance across Lower Manhattan, Hell's Kitchen, and Astoria to identify differences in customer purchasing patterns and sales activity.
-**Geographic Location Slicers (Store Comparisons)**
+**Store comparison views**
 
-- [Lower Manhattan Slicer View](./Lower_Manhattan_View.png)
-- [Hell's Kitchen Slicer View](./Hell_Slicer_View.png)	
-- [Astoria Slicer View](./Astoria_Slicer_View.png)
+- [Lower Manhattan Slicer View](Lower_Manhattan_View.png)
+- [Hell's Kitchen Slicer View](Hell_Slicer_View.png)
+- [Astoria Slicer View](Astoria_Slicer_View.png)
 
 | Performance Metric | Lower Manhattan | Hell's Kitchen | Astoria |
 |---|---:|---:|---:|
@@ -227,67 +224,35 @@ Using the dashboard slicers, I compared sales performance across Lower Manhattan
 | Top Revenue Category | Coffee ($88.9K) | Coffee ($91.2K) | Coffee ($89.7K) |
 | Top Product by Revenue | Barista Espresso ($31.1K) | Barista Espresso ($32.4K) | Barista Espresso ($27.9K) |
 
-Hell's Kitchen generated the highest total revenue, while all three locations recorded similar sales figures and average unit prices.
+Hell's Kitchen recorded the highest total revenue, although revenue, average unit price and units sold were broadly similar across the three locations. The more noticeable differences were in the distribution of sales across time periods and the peak sales weekday at each store.
 
-The main difference was when sales occurred. Lower Manhattan recorded its highest share of sales in the morning, while Astoria had a larger afternoon and night sales share. These patterns suggest that customer purchasing behaviour may differ by location.
+Morning accounted for the largest share of sales in all three locations, but its contribution varied from 45% in Astoria to 63% in Lower Manhattan. Astoria also recorded a higher share of afternoon and night sales than the other locations. These patterns suggest that demand should be assessed at the individual-store level when reviewing staffing and inventory plans.
 
-June was the best-performing month across all three stores, and Barista Espresso was the leading product by revenue in each location.
+June was the highest-revenue month for all three stores, and Barista Espresso was the leading product by revenue at each location. Further analysis of transaction volumes, product mix and available promotional or operational records could help explain the patterns observed, as the sales figures alone do not establish their underlying causes.
 
-## 10 Business Interpretation
+## 10. Business Recommendations
 
-#### Sales volume does not tell the whole story
+Based on the findings, the following actions could be explored and evaluated using additional operational data.
 
-Brewed Chai Tea had the highest order volume, but Barista Espresso generated more revenue. This highlights the importance of evaluating products using multiple measures, including order frequency, sales revenue, and units sold.
+### 1. Test bundles to increase the value of Brewed Chai Tea purchases
 
-#### Sales patterns differ by location
+Explore bundles pairing Brewed Chai Tea with pastries or snacks, such as scones. Compare transaction value and sales performance before and during the test to determine whether the bundles encourage additional purchases.
 
-Lower Manhattan recorded 63% of its sales in the morning, compared with 45% in Astoria. Night sales accounted for only 3% of Lower Manhattan's revenue, while Astoria recorded 14%.
+### 2. Test ways to improve Barista Espresso's sales performance
 
-These differences suggest that the stores may benefit from different staffing and inventory plans. However, sales data alone cannot establish whether current staffing levels or operating hours are inefficient. Cost and staffing data would be needed to assess that.
+Evaluate options such as more prominent menu placement or staff recommendations to buyers. Track product revenue and units sold before and during the test to determine whether these changes improve performance.
 
-#### Monday leads overall, but not at every location
+### 3. Evaluate a potential price adjustment for Brewed Chai Tea
 
-Monday generated the highest sales across the chain, at $101,677. However, the peak weekday varied by location: Monday in Lower Manhattan, Tuesday in Hell's Kitchen, and Wednesday in Astoria.
+A controlled price test could help assess how a price change affects demand and revenue. If a 5% increase is tested in a selected location, monitor units sold, revenue and available cost or margin data before considering a wider change.
 
-This suggests that management should consider both overall sales trends and individual store patterns when planning promotions, staffing, and stock levels.
+### 4. Review staffing and inventory against store-level demand
 
-#### June was the strongest month
+Compare sales by time period with staffing availability and stock usage at each location. Use the results to assess whether shift schedules or inventory allocations could be adjusted to better match demand.
 
-June generated $166,486 in sales and was the best-performing month across all three locations. 
+### 5. Investigate the factors associated with June's performance
 
-## 11 Business Recommendations
-
-Based on the findings, I identified the following actions the business could explore.
-
-#### 1. Increase the value of Brewed Chai Tea purchases
-
-Brewed Chai Tea attracted the highest number of orders but generated less revenue than Barista Espresso.
-
-The business could test product bundles that pair Brewed Chai Tea with pastries or snacks, such as scones. This would provide an opportunity to increase the average transaction value without relying solely on selling more drinks.
-
-#### 2. Improve the visibility of Barista Espresso
-
-Barista Espresso generated the highest revenue across the chain and was the leading product by revenue in all three locations.
-
-The business could test more prominent menu placement, staff recommendations, and limited-time promotions to maintain or increase demand. The results should be tracked to determine whether these changes improve sales.
-
-#### 3. Test a price adjustment for Brewed Chai Tea
-
-Given its high order volume, Brewed Chai Tea could be considered for a small price-increase test.
-
-Rather than assuming that regular customers would accept a higher price, the business could test a modest 5% increase in a selected location and monitor changes in sales volume, revenue, and profit margin before making a wider decision.
-
-#### 4. Review staffing and inventory by location
-
-Lower Manhattan's sales were concentrated in the morning, while Astoria recorded a larger share of afternoon and night sales.
-
-Management could compare hourly sales with staffing costs and stock usage to determine whether adjustments to shift schedules or inventory would improve efficiency. Any changes should be based on the cost of operating each shift as well as the revenue generated.
-
-#### 5. Investigate the factors behind June's performance
-
-Since June was the best-performing month across all three stores, management could examine product sales, transaction volumes, and location-level trends to understand what drove the increase.
-
-These findings could help inform future sales planning, provided the business can identify which factors are repeatable.
+Examine monthly transaction volumes, product mix and available promotional or operational records to identify factors that may explain June's higher sales. Use the findings to inform future planning where the patterns are repeatable.
 
 ## Author and Contact
 Fatolu Adedoyin Juliana
