@@ -82,7 +82,7 @@ Used for data inspection, preparation, feature engineering, and interactive dash
 
 - Interactive Dashboard Development: Designed an interactive dashboard incorporating timeline slicers, visual hierarchy, custom colour branding, and shape-based containers to improve navigation and readability.
 
-PostgreSQL 17:
+
 
 ### PostgreSQL Analysis
 
@@ -174,6 +174,8 @@ The interactive Excel dashboard was designed using a Warm Roast Coffee colour pa
 ### A. Overall Coffee Sales Performance
 
 The analysis covered 149,116 sales records from January to June 2023 across three store locations. The following KPIs summarise the overall performance of the business.
+[Overall_Coffee_SalesView](Lower_Manhattan_View.png)
+
 
 | Performance Metric | Result |
 |---|---:|
