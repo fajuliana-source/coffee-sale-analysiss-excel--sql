@@ -96,10 +96,7 @@ The analysis covered:
 - **Product Ranking:** Identified the highest-revenue product, top five product categories by revenue, and top 10 product types based on the selected ranking metric.
 - **Cross-Validation:** Compared PostgreSQL query results with the corresponding Excel calculations to check consistency across both tools.
 
-Microsoft PowerPoint:
-- Used to document the analytical process and communicate technical findings.
 
-- Prepared a presentation documenting SQL query logic, screenshots of query outputs, visual evidence of the analysis, and interpretations of the results for stakeholder communication.
 
 ## 6. Data Cleaning and Preparation
 Data preparation was performed in Microsoft Excel before the dataset was structured and loaded into PostgreSQL for analysis.
