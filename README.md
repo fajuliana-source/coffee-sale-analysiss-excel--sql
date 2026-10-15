@@ -1,5 +1,5 @@
-# coffee-sale-analysiss-excel--sql
-# End-to-End Coffee Sales Analytics: Dual Excel Dashboard & PostgreSQL Data Validation
+# coffee-sale-analysiss-excel-sql
+# # Coffee Sales Performance Analysis: Excel Dashboard and PostgreSQL Validation
 
 [![Tools](https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
 [![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
@@ -7,11 +7,16 @@
 
 
 ## 1. Project Overview
-This project delivers a comprehensive, end-to-end commercial analytics solution evaluating the performance of a multi-location coffee retail chain operating across three primary  store Locations: **Lower Manhattan, Hell's Kitchen, and Astoria.**
+T## 1. Project Overview
 
-This project bridges the gap between front-end visual reporting and back-end database engineering. The project began by building an interactive executive dashboard in Microsoft Excel to visualize sales performance, operational shift concentrations, product volume vs. revenue divergences, and geographic purchasing behaviors across **14,116** raw transaction logs and **214,470** total units sold) from **January 1, 2023, to June 30, 2023.**
+This project analyses coffee sales across three store locations: Lower Manhattan, Hell's Kitchen, and Astoria, using Microsoft Excel and PostgreSQL.
 
-To achieve enterprise-level data validation, the entire analysis was then re-engineered in **PostgreSQL**. By translating visual pivot logic into structured database queries **(CTEs, aggregate functions, conditional grouping, and timestamp extractions)**, every key performance indicator (KPI), trend line, and ranking was cross-validated. This dual-tool approach guarantees 100% data reconciliation, proving that the numbers driving executive decisions are accurate, repeatable, and audit-ready.
+I started by preparing the dataset, creating calculated columns, and building an interactive Excel dashboard to track sales performance, identify peak sales periods, compare product performance, and examine differences across store locations.
+
+I then recreated the key calculations and aggregations in PostgreSQL to  compare and validate the results with my Excel analysis.
+
+The project covers six months of sales data, from January to June 2023, and focuses on turning sales records into insights that can help support business decisions.
+ [Coffee Sales Dashboard](./Coffee_Sales_Analysis_Dashboard.png)
 
 ## 2. Business Problem
 The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) and needs a single, trusted view of sales performance for Jan–Jun 2023. Leadership wants to plan staffing, inventory, pricing, and promotions based on facts, not assumptions. Specifically, they need to:
@@ -26,7 +31,7 @@ The coffee chain runs three stores (Astoria, Hell’s Kitchen, Lower Manhattan) 
 The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023).
 
 Dataset Metadata & Schema Summary
-- Total Raw Records: 14,116 transaction records
+- Total Raw Records: 149,116 transaction records
 - Total Units Sold: 214,470 units
 - Timeframe: January 1, 2023 – June 30, 2023
 - Geographic Scope: 3 Stores (Astoria, Hell's Kitchen, Lower Manhattan)
@@ -58,7 +63,7 @@ Temporal & Operational Trends
 - Which day of the week generates peak revenue, and what is the dollar variance between the busiest and slowest days?
 - What is the month-over-month sales growth trajectory across the 6-month period?
 
-Others 
+Product Performance 
 - Which top 5 product categories contribute the largest share to total sales?
 - Which specific product types dominate transaction order volume (Top 10 Most Ordered)?
 - Which specific product types dominate gross revenue generation (Top 10 Highest Earning)?
@@ -82,13 +87,17 @@ Used for data inspection, preparation, feature engineering, and interactive dash
 
 PostgreSQL 17:
 
-Used for relational table creation, data ingestion, and analytical querying.
+### PostgreSQL Analysis
 
-- Database Schema Design: Defined a relational table structure using CREATE TABLE, with appropriate data types and NUMERIC(10,2) precision for monetary values.
+PostgreSQL was used to analyse the coffee sales dataset and validate key metrics against the Excel dashboard.
 
-- Data Ingestion: Loaded CSV data into PostgreSQL using the COPY command.
+The analysis covered:
 
-- Analytical SQL: Used aggregate functions such as SUM(), AVG(), and COUNT(), alongside GROUP BY, ORDER BY, and LIMIT, to analyse sales performance across relevant dimensions.
+- **Data Ingestion:** Created a database table and imported the coffee sales dataset using `COPY`.
+- **Sales Metrics:** Used `SUM()`, `AVG()`, and `COUNT()` to calculate key performance indicators.
+- **Sales Performance Analysis:** Used `GROUP BY` and `ORDER BY` to analyse revenue by product, weekday, and time of day.
+- **Product Ranking:** Identified the highest-revenue product, top five product categories by revenue, and top 10 product types based on the selected ranking metric.
+- **Cross-Validation:** Compared PostgreSQL query results with the corresponding Excel calculations to check consistency across both tools.
 
 Microsoft PowerPoint:
 - Used to document the analytical process and communicate technical findings.
@@ -137,7 +146,7 @@ Five calculated columns were created to support more detailed sales analysis and
 These attributes were incorporated into the dataset to facilitate comparisons across operational time periods and other relevant business dimensions.
 
 - Time of Day Bucket (Operational Shift): Evaluated raw timestamp in Column F to categorize sales into operational shifts:
-=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night"))
+=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night")))
 
 - Day of Week: Extracted three-letter abbreviated weekday strings from Column "transaction_date":=TEXT([@[transaction_date]],"ddd")
   
