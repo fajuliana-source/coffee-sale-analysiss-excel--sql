@@ -174,7 +174,7 @@ The interactive Excel dashboard was designed using a Warm Roast Coffee colour pa
 ### A. Overall Coffee Sales Performance
 
 The analysis covered 149,116 sales records from January to June 2023 across three store locations. The following KPIs summarise the overall performance of the business.
-[Overall_Coffee_SalesView](Lower_Manhattan_View.png)
+[Overall_Coffee_Sales_View](/Coffee_Sales_Analysis_Dashboard.png)
 
 
 | Performance Metric | Result |
