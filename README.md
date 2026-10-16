@@ -1,5 +1,5 @@
 # coffee-sale-analysiss-excel-sql
-# # Coffee Sales Performance Analysis: Excel Dashboard and PostgreSQL Validation
+#  Coffee Sales Performance Analysis: Excel Dashboard and PostgreSQL Validation
 
 [![Tools](https://img.shields.io/badge/Tools-Microsoft_Excel_%7C_PostgreSQL-blue?style=flat-square)](https://github.com)
 [![Domain](https://img.shields.io/badge/Domain-Retail_%26_F%26B_Analytics-brown?style=flat-square)](https://github.com)
@@ -33,19 +33,6 @@ Dataset Metadata & Schema Summary
 - Timeframe: January 1, 2023 – June 30, 2023
 - Geographic Scope: 3 Stores (Astoria, Hell's Kitchen, Lower Manhattan)
 
-| Raw Field Name | Data Type | Description |
-|---|---|---|
-| transaction_id | Integer | Unique identifier for each customer transaction |
-| transaction_date | Date / Text | Standard calendar date of sale (YYYY-MM-DD) |
-| transaction_time | Time / Text | Exact timestamp of transaction (HH:MM:SS) |
-| transaction_qty | Integer | Number of units purchased per line item |
-| store_id | Integer | Unique store location identifier (1, 2, 3) |
-| store_location | Text | Physical location name (Astoria, Hell's Kitchen, Lower Manhattan) |
-| product_id | Integer | Unique inventory SKU identifier |
-| unit_price | Decimal | Retail price per individual unit ($) |
-| product_category | Text | High-level category (Coffee, Tea, Bakery, Drinking Chocolate, etc.) |
-| product_type | Text | Specific sub-category (Barista Espresso, Brewed Chai Tea, Scone, etc.) |
-| product_detail | Text | product description |
 
 ## 4. Business Questions
 To understand the business performance and support better decision-making, this analysis focuses on answering the following business questions:
@@ -70,7 +57,7 @@ Geographic & Slicer Analysis
 - How do sales KPIs, shift patterns, and product preferences shift when filtering specifically by Lower Manhattan, Hell's Kitchen, and Astoria?
 
 ## 5. Tools and Commands
-Microsoft Excel:
+#### Microsoft Excel:
 
 Used for data inspection, preparation, feature engineering, and interactive dashboard development.
 
@@ -84,7 +71,7 @@ Used for data inspection, preparation, feature engineering, and interactive dash
 
 
 
-### PostgreSQL Analysis
+#### PostgreSQL Analysis
 
 PostgreSQL was used to analyse the coffee sales dataset and validate key metrics against the Excel dashboard.
 
@@ -109,20 +96,12 @@ Step 1: Data Import and Structural Inspection
 
 Initial checks indicated:
 
-- No missing values were identified.
-
-- No duplicate transaction IDs were identified.
-
-- Date and time values were consistent in their original representation.
+- No missing values were identified, no duplicate transaction IDs were identified.
 
 Step 2: Data Type Standardisation
 
 Columns were reviewed and prepared for analysis using appropriate data types and formats.
-
-Column
-
-Intended data type or format
-
+E.g: 
 - transaction_id, store_id, product_id, transaction_qty: Whole number
 
 - transaction_date: Date (YYYY-MM-DD)
@@ -131,25 +110,18 @@ Intended data type or format
 
 - unit_price: Currency
 
-Date and time fields were prepared for temporal analysis, while numeric fields were checked for compatibility with calculations and aggregation.
-
 Step 3: Feature Engineering
 
-Five calculated columns were created to support more detailed sales analysis and interactive dashboard filtering.
+Five calculated columns were created to support more detailed sales analysis.
 
-These attributes were incorporated into the dataset to facilitate comparisons across operational time periods and other relevant business dimensions.
-
-- Time of Day Bucket (Operational Shift): Evaluated raw timestamp in Column F to categorize sales into operational shifts:
-=IF(F2<TIME(6,0,0),"Night",IF(F2<TIME(12,0,0),"Morning",IF(F2<TIME(18,0,0),"Afternoon","Night")))
-
-- Day of Week: Extracted three-letter abbreviated weekday strings from Column "transaction_date":=TEXT([@[transaction_date]],"ddd")
+- Time of Day Bucket (Operational Shift): Evaluated raw timestamp to categorize sales into operational shifts:
+- Day of Week: Extracted three-letter abbreviated weekday strings from Column "transaction_date"
   
-- Month Name: Extracted three-letter abbreviated month strings from Column "transaction_date":=TEXT([@[transaction_date]],"MMM")
+- Month Name: Extracted three-letter abbreviated month strings from Column "transaction_date"
 
-- Extracted four-digit calendar year from Column "transaction_date":=TEXT([@[transaction_date]],"YYYY")
+- Extracted four-digit calendar year from Column "transaction_date"
 
-- Total Line Sales: Calculated line item gross revenue by multiplying quantity by unit price:=[@[transaction_qty]]*[@[unit_price]]
-
+- Total Line Sales: Calculated line item gross revenue by multiplying quantity by unit price
 
 ## 7 Exploratory Data Analysis and Methodology
 The analytical methodology followed a structured 3-stage process:
