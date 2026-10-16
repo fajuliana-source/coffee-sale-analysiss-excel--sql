@@ -8,6 +8,9 @@
 
 ## 1. Project Overview
 
+![Overall_Coffee_Sales_View](/Coffee_Sales_Analysis_Dashboard.png)
+
+
 This project analyses coffee sales across three store locations: Lower Manhattan, Hell's Kitchen, and Astoria, using Microsoft Excel and PostgreSQL.
 
 I started by preparing the dataset, creating calculated columns, and building an interactive Excel dashboard to track sales performance, identify peak sales periods, compare product performance, and examine differences across store locations.
@@ -146,7 +149,7 @@ The interactive Excel dashboard was designed using a Warm Roast Coffee colour pa
 ### A. Overall Coffee Sales Performance
 
 The analysis covered 149,116 sales records from January to June 2023 across three store locations. The following KPIs summarise the overall performance of the business.
-[Overall_Coffee_Sales_View](/Coffee_Sales_Analysis_Dashboard.png)
+![Overall_Coffee_Sales_View](/Coffee_Sales_Analysis_Dashboard.png)
 
 
 | Performance Metric | Result |
@@ -176,9 +179,13 @@ The dashboard slicers enabled comparisons of sales performance, time-of-day patt
 
 **Store comparison views**
 
-- [Lower Manhattan Slicer View](Lower_Manhattan_View.png)
-- [Hell's Kitchen Slicer View](Hell_Slicer_View.png)
-- [Astoria Slicer View](Astoria_Slicer_View.png)
+- ![Lower Manhattan Slicer View](Lower_Manhattan_View.png)
+
+
+- ![Hell's Kitchen Slicer View](Hell_Slicer_View.png)
+
+
+- ![Astoria Slicer View](Astoria_Slicer_View.png)
 
 | Performance Metric | Lower Manhattan | Hell's Kitchen | Astoria |
 |---|---:|---:|---:|
@@ -227,10 +234,8 @@ Examine monthly transaction volumes, product mix and available promotional or op
 ## Author and Contact
 Fatolu Adedoyin Juliana
 
-Data Analyst |  Statistics Graduate | Research Analyst 
+Data Analyst | Statistics Graduate | Research Analyst
 
-LinkedIn: Fatolu Adedoyin Juliana
-
-GitHub Profile: fajuliana-source
-
-Email: fatoluadedoyin46@gmail.com 
+- **LinkedIn:** [Fatolu Adedoyin Juliana](https://www.linkedin.com)
+- **GitHub Profile:** [fajuliana-source](https://github.com/fajuliana-source)
+- **Email:** fatoluadedoyin46@gmail.com
