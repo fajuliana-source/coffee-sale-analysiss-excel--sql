@@ -25,7 +25,7 @@ Without a consolidated view of sales data, it can be difficult to identify areas
 This project uses six months of sales data, from January to June 2023, to provide a consolidated view of the business's performance and support data-informed decision-making.
 
 ### 3. Dataset Description
-The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023).
+The dataset was sourced from Kaggle and comprises raw POS (Point of Sale) transaction logs spanning a 6-month operational period (January 2023 – June 2023). [Excel_Workbook_Sheet](/Coffee_Sales_Analysis.xlsx)
 
 Dataset Metadata & Schema Summary
 - Total Raw Records: 149,116 transaction records
